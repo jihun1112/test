@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content="width=device-width, initial-scale = 1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href ='design.css' rel = 'stylesheet'>
+    <link href ='text.css' rel = 'stylesheet'>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" a href="http://localhost:5000">대신고 기숙사</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" a href="http://localhost:5000/main.html">팁 공유</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" a href="hhttp://localhost:5000/rule.html">기숙사 규칙</a>
+                <li class="nav-item">
+                    <a class="nav-link" a href="http://localhost:5000/location.html">위치</a>
+         <li class="nav-item">
+                <a class="nav-link" a href="http://localhost:5000/login.html">회원가입 및 로그인</a>
+
+            
+          </div>
+        </div>
+    </nav>
+    <script src="/__/firebase/8.6.5/firebase-app.js"></script>
+    <script src="/__/firebase/8.6.5/firebase-auth.js"></script>
+    <script src="/__/firebase/8.6.5/firebase-firestore.js"></script>
+    <script src="/__/firebase/8.6.5/firebase-storage.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+   
+    <div class="container mt-3">
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="name" id="name-new">
+        </div>
+        <div class="mb-3">
+          <input type="email" class="form-control" placeholder="email" id="email-new">
+        </div>
+        <div class="mb-3">
+          <input type="password" class="form-control" placeholder="pw" id="pw-new">
+        </div>
+        <button type="submit" class="btn btn-primary" id="register">가입하기</button>
+     </div>
+
+<script>
+    const db = firebase.firestore();
+    const st = firebase.firestorage();
+
+    $('#register').click(function(){
+        var 이메일 = $('#email-new').val();
+        var 패스워드 = $('#pw-new').val();
+
+
+    firebase.auth().createUserWithEmailAndPassword(이메일, 패스워드).then((result)=>{
+        console.log(result)
+        console.log(result.user)
+    })
+})
+
+</script>
